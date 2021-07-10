@@ -1,0 +1,5 @@
+linux install tomcat:
+1.find docker image on dockerhub
+2.docker pull tomcat:tag
+3.docker run --name tomcat -p 8080:8080 -v /usr/local/webapp:/usr/local/webapp
+

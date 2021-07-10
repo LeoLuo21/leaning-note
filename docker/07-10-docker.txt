@@ -1,0 +1,53 @@
+获取镜像：
+docker pull image:tag
+搜索镜像：
+docker search image;
+启动镜像：
+docker run -it image
+进入容器：
+docker exec -it container bin/bash or /bash
+退出容器；
+exit
+查看所有的容器：
+docker ps -a
+启动容器：
+docker start container-id/container-name
+后台运行：
+-d
+停止一个容器：
+docker stop container-id/container-name
+重启容器：
+docker restart container-id/container-name
+导出容器：
+docker export container-id > ubuntu.jar
+导入容器快照：
+cat docker/ubuntu.jar | docker import -test/ubuntu:v1
+删除容器：
+docker rm -f container-id
+清理掉所有终止的容器：
+docker container prune
+查看指定容器的端口映射；
+docker port container-id
+查看web应用程序日志：
+docker logs container-id
+查看web应用容器的进程：
+docker top container-id
+检查web应用程序：
+docker inspect container-id
+
+
+
+列出所有镜像：
+docker images
+利用镜像创建容器：
+docker run -it image /bin/bash
+删除镜像：
+docker
+构建镜像：
+docker build dockerfile
+设置镜像标签：
+docker tag image-id runoob/centos:dev
+-p：端口映射
+-v: 文件挂载
+-e: 配置conf里面的属性
+--name 给容器起个名字
