@@ -3,3 +3,27 @@ linux install tomcat:
 2.docker pull tomcat:tag
 3.docker run --name tomcat -p 8080:8080 -v /usr/local/webapp:/usr/local/webapp
 
+
+查找
+cat more less head tail 
+新建、移动、复制、删除、重命名
+touch mkdir mv cp rm rm -i 
+查看网络
+ifconfig 
+查看当前路径，进入到指定目录
+pwd cd 
+
+
+linux目录结构
+bin 存放可执行命令
+sbin 超级管理员可执行命令
+home 用户文件夹
+root 超级管理员文件夹
+etc 存放配置文件
+lib 系统的最基本的动态链接共享库
+opt 可选的，安装额外软件
+usr 存放共享资源 很多应用程序都在这个目录下
+var 存放经常修改的目录和文件 包括各种日志文件
+tmp 临时文件
+sys 系统内核
+
