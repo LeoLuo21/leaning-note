@@ -1,0 +1,4 @@
+1.yum update //更新yum来安装docker，生产环境须谨慎
+2.yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo //配置阿里云docker源
+3.systemctl start docker //启动docker
+4.systemctl enable docker //保证docker开机自启动

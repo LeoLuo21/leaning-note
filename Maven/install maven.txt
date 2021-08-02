@@ -1,0 +1,6 @@
+1.官方下载maven,并解压
+2.配置M2_HOME
+3.将M2_HOME/bin添加到path路径
+4.修改conf/settings.xml 
+    1.配置LocalRepository
+    2.修改maven下载源为阿里源

@@ -1,0 +1,6 @@
+为普通用户添加sudo权限
+1.切换到root用户
+2.vim /etc/sudoers
+3.找到 "root ALL=(ALL:ALL) ALL"
+4.在下面一行添加 xxx ALL=(ALL:ALL) ALL
+5.wq!保存退出
