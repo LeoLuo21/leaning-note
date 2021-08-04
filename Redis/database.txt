@@ -1,0 +1,13 @@
+struct redisServer{
+	redisDb *db;
+	int dbnum;
+}
+
+typedef struct redisClient{
+	redisDb *db;
+} redisClient;
+
+typedef struct redisDb{
+    dict *dict;
+	dict *expires;
+}

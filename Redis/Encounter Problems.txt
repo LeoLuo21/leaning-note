@@ -1,0 +1,14 @@
+Could not connect to Redis at 192.168.3.15:7003: No route to host
+问题原因：端口未开放
+解决办法：1.关闭防火墙 systemctl stop firewalld.service
+          2.开放指定端口 firewall-cmd --add-port port/tcp --permanent
+		  
+Sending CLUSTER MEET messages to join the cluster...... 
+原因：docker 环境启动集群需要配置：
+1.cluster-announce-ip
+2.cluster-announce-port
+3.cluster-announce-bus
+
+driver failed programming external connectivity on endpoint 7001 (ca0ad37879464170744f3ed2357add6edcee8dd19e1a45124bc61112df20584f):  (iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 7001 -j DNAT --to-destination 172.17.0.2:7001 ! -i docker0: iptables: No chain/target/match by that name.
+原因：防火墙
+解决方案：systemctl restart docker

@@ -1,0 +1,21 @@
+for port in $(seq 20000 20006); \
+do \
+mkdir -p /redis-cluster/node-${port}/conf
+touch /redis-cluster/node-${port}/conf/redis.conf
+cat << EOF >/redis-cluster/node-${port}/conf/redis.conf
+port ${port}
+cluster-enabled yes
+cluster-config-file node.file
+cluster-node-timeout 5000
+cluster-announce-ip 192.168.3.15
+cluster-announce-port ${port}
+cluster-announce-bus-port 1${port}
+appendonly yes
+EOF
+docker run -d -p ${port}:${port} -p ${port}:${port} --name redis-${port} \
+-v /redis-cluster/node-${port}/conf/redis.conf:/etc/redis/redis.conf \
+-v /redis-cluster/node-${port}/data:/data \
+redis redis-server /etc/redis/redis.conf; \
+done
+docker stop ${docker ps -a | grep redis-800} awk 'print${1}'
+docker rm ${docker ps -a | grep redis-800} awk 'print${1}'

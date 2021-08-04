@@ -1,0 +1,83 @@
+include /path/to/your/other/config/file
+
+bind 127.0.0.1 -::1 
+
+port 6379
+
+timeout 0
+
+tcp-keepalive 300 (s)
+
+GENERAL*************************************************************************
+
+pidfile /var/run/redis_6379.pid
+
+loglevel notice
+
+logfile ""
+
+database 16
+
+always-show-logo no
+
+# Template variables are specified in curly brackets. The following variables are
+# supported:
+# {title}           Name of process as executed if parent, or type of child process.
+# {listen-addr}     Bind address or '*' followed by TCP or TLS port listening on, or
+#                   Unix socket if only that's available.
+# {server-mode}     Special mode, i.e. "[sentinel]" or "[cluster]".
+# {port}            TCP port listening on, or 0.
+# {tls-port}        TLS port listening on, or 0.
+# {unixsocket}      Unix domain socket listening on, or "".
+# {config-file}     Name of configuration file used.
+
+
+################################### SNAPSHOTTING ####################################
+
+save <seconds> <changes>
+# save 3600 1
+# save 300 100
+# save 60 10000
+
+stop-writes-on-bgsave-error yes
+
+rdbcompression yes
+
+dbfilename dump.rdb
+
+
+################################### REPLICATION ####################################
+
+# replicaof <masterip> <masterport>
+
+# masterauth <master-password>
+
+# masteruser <username>
+
+replica-read-only yes
+
+################################### CLIENTS ####################################
+
+appendonly no
+
+appendfilename "appendonly.aof"
+
+appendfsync everysec
+
+auto-aof-rewrite-percentage 100
+
+auto-aof-rewrite-min-size 64mb
+
+############################## SECURITY ###############################
+
+# requirepass foobared
+
+############################## APPEND ONLY MODE ###############################
+
+# cluster-enabled 
+
+# cluster-config-file nodes-6379.conf
+
+# cluster-node-timeout 15000
+
+

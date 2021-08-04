@@ -1,0 +1,5 @@
+docker run -d --name redis-7002 -p 7002:6379 \
+-v /docker/redis-7002/conf/redis.conf:/etc/redis/redis.conf \
+-v /docker/redis-7002/data:/data \
+--privileged=true \
+redis:latest redis-server /etc/redis/redis.conf
